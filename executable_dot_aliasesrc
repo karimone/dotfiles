@@ -1,0 +1,38 @@
+#vim ft=shell
+alias ls="exa"
+alias ll="ls -lh"
+alias l="ll -a"
+alias la="ll -a"
+alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias news="newsboat"
+alias gs="git status"
+alias vim="nvim"
+alias vi="nvim"
+alias mutt="neomutt"
+alias sub="subliminal download --language en"
+alias tmux="tmux -f ~/.config/tmux/config"
+alias mv="mv -v"
+alias ..="cd .."
+alias ...="cd .. && cd .."
+
+alias ldmesg="dmesg --color=always | less -R"
+alias t="~/run_tmux.sh"
+
+# git
+alias cur-branch="git branch --show-current | xclip"
+
+# clip
+alias xclip="xclip -selection clipboard"
+alias rsync='rsync --info=progress2'
+
+# docker
+alias diesel-docker="docker system prune -af --volumes"
+
+# corona
+alias co-au="curl https://corona-stats.online/au"
+alias co-it="curl https://corona-stats.online/it"
+alias co="curl https://corona-stats.online/"
+
+
+# flutter stuff
+alias bundletool="java -jar $HOME/local/bundletool-all-1.0.0.jar"
