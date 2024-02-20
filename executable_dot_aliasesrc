@@ -1,8 +1,14 @@
 #vim ft=shell
+#
 alias ls="exa"
 alias ll="ls -lh"
 alias l="ll -a"
 alias la="ll -a"
+alias lt="l --tree"
+alias llt="ll --tree"
+alias vimdiff="nvim -d"
+alias c="chezmoi"
+
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias news="newsboat"
 alias gs="git status"
@@ -10,7 +16,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias mutt="neomutt"
 alias sub="subliminal download --language en"
-alias tmux="tmux -f ~/.config/tmux/config"
+alias tmux="tmux -f $HOME/.config/tmux/config"
 alias mv="mv -v"
 alias ..="cd .."
 alias ...="cd .. && cd .."
@@ -33,6 +39,6 @@ alias co-au="curl https://corona-stats.online/au"
 alias co-it="curl https://corona-stats.online/it"
 alias co="curl https://corona-stats.online/"
 
+alias mailhog="docker run -p 8025:8025 -p 1025:1025 mailhog/mailhog"
+alias redis="docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest"
 
-# flutter stuff
-alias bundletool="java -jar $HOME/local/bundletool-all-1.0.0.jar"
