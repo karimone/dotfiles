@@ -7,7 +7,12 @@ alias la="ll -a"
 alias lt="l --tree"
 alias llt="ll --tree"
 alias vimdiff="nvim -d"
+
+# chezmoi
 alias c="chezmoi"
+alias ce="chezmoi edit"
+alias ccd="chezmoi cd"
+alias ca="chezmoi -v apply"
 
 alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias news="newsboat"
