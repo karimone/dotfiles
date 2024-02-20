@@ -1,0 +1,9 @@
+packages:
+  darwin:
+    brews:
+    - 'git'
+    - 'neovim'
+    - 'ffmpeg'
+    - 'jq'
+    casks:
+    - 'google-chrome'
