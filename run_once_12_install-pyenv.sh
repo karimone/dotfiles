@@ -10,5 +10,5 @@ if os_has "pyenv"; then
     exit
 fi
 
-curl https://pyenv.run | bash && pyenv install 3.11.7 3.12.2
+curl https://pyenv.run | bash
 
