@@ -3,6 +3,7 @@ packages:
     brews:
       - 'git'
       - 'neovim'
+      - 'neofetch'
       - 'ffmpeg'
       - 'jq'
       - 'detox'
@@ -43,6 +44,8 @@ packages:
       - 'jq'
       - 'python-is-python3'
       - 'pipx'
+      - 'ffmpeg'
+      - 'neofetch'
     snap:
       - 'nvim --classic'
 
