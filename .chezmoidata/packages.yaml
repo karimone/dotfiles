@@ -46,6 +46,7 @@ packages:
       - 'pipx'
       - 'ffmpeg'
       - 'neofetch'
+      - 'zsh'
     snap:
       - 'nvim'
 
