@@ -47,5 +47,5 @@ packages:
       - 'ffmpeg'
       - 'neofetch'
     snap:
-      - 'nvim --classic'
+      - 'nvim'
 

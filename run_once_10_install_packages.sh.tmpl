@@ -17,7 +17,7 @@ sudo apt install -y {{ . | quote }}
 {{ end -}}
 
 {{ range .packages.debian.snap -}}
-sudo snap install {{ . | quote }}
+sudo snap install {{ . | quote }} --classic
 {{ end -}}
 {{ else }}
 echo "Os system not supported!"
