@@ -1,0 +1,87 @@
+# vim: set ft=sh :
+setopt INTERACTIVE_COMMENTS
+
+source ~/.aliasesrc
+source ~/.secrets
+
+export EDITOR=nvim
+export VISUAL=nvim
+export PAGER=less
+
+export PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Postgresql
+export PGHOST=localhost
+export PGPORT=5432
+export PGUSER=postgres
+
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd
+unsetopt beep
+bindkey -v
+export KEYTIMEOUT=1
+
+
+# path
+typeset -U PATH path
+path=(
+  "$HOME/.pyenv/shims"
+  "$HOME/.pyenv/bin"
+  "$HOME/flutter/bin"
+  "$HOME/.local/bin" 
+  "$HOME/bin" 
+  "$path[@]"
+)
+
+export PATH
+
+# PyENV
+export PYENV_ROOT="$HOME/.pyenv"
+export WORKON_HOME=$HOME/.venvs
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
+# add keys for ssh
+ssh_load() {
+    eval "$(ssh-agent -s)";
+    ssh-add ~/.ssh/id_rsa;
+    ssh-add ~/.ssh/gitlab_personal;
+}
+
+
+_load_extensions(){
+    EXTENSIONS_DIR="$HOME/.extensions"
+    echo "Loading $EXTENSIONS_DIR ..."
+    for extension in $(ls -1 "$EXTENSIONS_DIR"/*.sh); do
+        source "$extension"
+    done;
+}
+
+_load_extensions
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# poetry
+#
+fpath+=~/.zfunc
+
+
+export NVM_DIR="$HOME/.nvm"
+
+if [ ! -s "$NVM_DIR/nvm.sh" ]; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash    
+fi
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    
+
+# Keep it last!
+eval "$(starship init zsh)"
+
