@@ -1,4 +1,5 @@
 #!/bin/sh
+# version that is common for every os
 
 os_has() {
   type "$1" > /dev/null 2>&1
@@ -14,18 +15,13 @@ if os_has "bw"; then
     exit;
 fi
 
-case "$(uname -s)" in
-Darwin)
-    if os_hasnt brew; then
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    fi
-    brew install bitwarden-cli
-    ;;
-Linux)
-    sudo snap install bw
-    ;;
-*)
-    echo "unsupported OS"
-    exit 1
-    ;;
+if os_hasnt "nvm"; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+    nvm install node
+    nvm use node
+fi
+
+if os_hasnt "npm"; then
+    npm install -g @bitwarden/cli
+fi
 esac
