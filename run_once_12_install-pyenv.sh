@@ -1,6 +1,9 @@
 #!/bin/sh
 # Script to install starship
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 os_has() {
   type "$1" > /dev/null 2>&1
 }
@@ -11,8 +14,5 @@ if os_has "pyenv"; then
 fi
 
 curl https://pyenv.run | bash
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)
