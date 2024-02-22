@@ -1,5 +1,5 @@
-{{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+{{ if eq .chezmoi.os "darwin" -}}
 
 {{ range .packages.darwin.brews -}}
 brew install {{ . | quote }}
@@ -21,5 +21,5 @@ sudo apt install {{ . | quote }}
 {{ end -}}
 
 {{ else }}
-   echo "Os system not supported!"
+echo "Os system not supported!"
 {{ end -}}
