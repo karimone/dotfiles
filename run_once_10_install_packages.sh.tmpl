@@ -10,16 +10,17 @@ brew install --cask {{ . | quote }}
 {{ end -}}
 
 {{ else if eq .chezmoi.os "linux" }}
+{{   if eq .chezmoi.osRelease.id "debian" }}
 sudo apt update && sudo apt upgrade -y
 
-{{ range .packages.linux.apt -}}
+{{ range .packages.debian.apt -}}
 sudo apt install -y {{ . | quote }}
 {{ end -}}
 
-{{ range .packages.linux.snap -}}
-sudo apt install {{ . | quote }}
+{{ range .packages.debian.snap -}}
+sudo snap install {{ . | quote }}
 {{ end -}}
-
+{{ end -}}
 {{ else }}
 echo "Os system not supported!"
 {{ end -}}
