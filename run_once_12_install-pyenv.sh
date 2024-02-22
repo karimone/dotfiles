@@ -15,4 +15,4 @@ fi
 
 curl https://pyenv.run | bash
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)
+eval "$(pyenv virtualenv-init -)"
