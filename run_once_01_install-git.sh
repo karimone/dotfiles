@@ -1,5 +1,4 @@
 #!/bin/sh
-# Script to install homebrew on mac
 
 type git >/dev/null 2>&1 && echo "Git already installed!" && exit
 
