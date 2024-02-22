@@ -11,14 +11,16 @@ Linux)
     arch=$(uname -m)
 
     if [ $arch = "aarch64" ]; then
-        sudo apt install build-essential
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-        . ~/.nvm/nvm.sh
-        . ~/.profile
-        . ~/.bashrc
-        nvm install stable
-        nvm use stable
-        npm install -g @bitwarden/cli
+        # this is how it should work on aarch64
+        # you have to do that manually
+        # sudo apt install build-essential
+        #curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+        #. ~/.nvm/nvm.sh
+        #. ~/.profile
+        #. ~/.bashrc
+        #nvm install stable
+        #nvm use stable
+        #npm install -g @bitwarden/cli
     else
         sudo snap install bw
     fi

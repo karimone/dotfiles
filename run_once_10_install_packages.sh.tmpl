@@ -1,24 +1,16 @@
 #!/bin/bash
 {{ if eq .chezmoi.os "darwin" -}}
 
-{{ range .packages.darwin.brews -}}
-brew install {{ . | quote }}
-{{ end -}}
+brew install git neovim neofetch ffmpeg jq detox exa ffmpeg hugo lazygit lua pipx starship tig tmux
 
-{{ range .packages.darwin.casks -}}
-brew install --cask {{ . | quote }}
-{{ end -}}
+brew install --cask iterm2
 
 {{ else if eq .chezmoi.os "linux" }}
 sudo apt update && sudo apt upgrade -y
 
-{{ range .packages.debian.apt -}}
-sudo apt install -y {{ . | quote }}
-{{ end -}}
+sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl detox tmux git exa jq python-is-python3 pipx ffmpeg neofetch zsh
 
-{{ range .packages.debian.snap -}}
-sudo snap install {{ . | quote }} --classic
-{{ end -}}
+sudo snap install nvim --classic
 {{ else }}
 echo "Os system not supported!"
 {{ end -}}
