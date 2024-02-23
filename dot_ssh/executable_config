@@ -1,0 +1,8 @@
+Host gitlab.com
+  HostName gitlab.com
+  IdentityFile ~/.ssh/gitlab_personal
+
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
