@@ -45,6 +45,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+os_has() {
+  type "$1" > /dev/null 2>&1
+}
 
 # add keys for ssh
 ssh_load() {
@@ -81,6 +84,46 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
     
+
+## BITWARDEN
+BW_SESSION_FILE="$HOME/.bw-session"
+
+is_bw_locked() {
+    # return true state if is unlocked
+    bw_status=$(bw status 2>/dev/null | jq -r '.status' 2>/dev/null)
+
+    if [ "$bw_status" = "locked" ]; then
+        return 0  # is locked!
+    else
+        return 1
+    fi
+}
+
+generate_session_file() {
+    echo "Generate BW_SESSION"
+    KEY="$(bw unlock --raw)"
+    echo "$KEY" > "$BW_SESSION_FILE"
+}
+
+set_bitwarden() {
+    # set a BW_SESSION if bitwarden is available
+    if os_has "bw"; then 
+        if [[ -f "$BW_SESSION_FILE" ]]; then
+            # session exists as a file
+            export BW_SESSION="$(cat $BW_SESSION_FILE)"
+            if is_bw_locked; then
+                # session file is outdated
+                generate_session_file;
+                export BW_SESSION="$(cat $BW_SESSION_FILE)"
+            fi
+        else
+            generate_session_file;
+            export BW_SESSION="$(cat $BW_SESSION_FILE)"
+        fi
+    fi
+}
+
+set_bitwarden
 
 # Keep it last!
 eval "$(starship init zsh)"
