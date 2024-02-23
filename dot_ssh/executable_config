@@ -1,8 +1,12 @@
 Host gitlab.com
   HostName gitlab.com
+  IgnoreUnknown AddKeysToAgent,UseKeychain
+  AddKeysToAgent yes
+  UseKeychain yes
   IdentityFile ~/.ssh/gitlab_personal
 
 Host github.com
+  IgnoreUnknown AddKeysToAgent,UseKeychain
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
