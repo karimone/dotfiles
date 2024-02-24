@@ -59,7 +59,6 @@ ssh_load() {
 
 _load_extensions(){
     EXTENSIONS_DIR="$HOME/.extensions"
-    echo "Loading $EXTENSIONS_DIR ..."
     for extension in $(ls -1 "$EXTENSIONS_DIR"/*.sh); do
         source "$extension"
     done;
@@ -128,3 +127,6 @@ set_bitwarden
 # Keep it last!
 eval "$(starship init zsh)"
 
+if os_has "neofetch"; then
+    neofetch
+fi
