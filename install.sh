@@ -14,7 +14,7 @@ if os_hasnt "bw"; then
     exit
 fi
 
-if [ -z "$BW_SESSION"]; then
+if [ -z "$BW_SESSION" ]; then
     echo "You must run this script with the BW_SESSION set"
     echo "Check the status with bw status"
     echo "If is unautenthicated run"
