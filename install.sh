@@ -7,8 +7,16 @@ os_hasnt() {
 
 check_bw(){
 if os_hasnt "bw"; then
-
     echo "You need to install bitwarden-cli! Read the README"
+    exit
+fi
+}
+
+check_jq() {
+if os_hasnt "jq"; then
+    echo "You need to install jq"
+    echo "sudo apt install jq"
+    echo "brew install jq"
     exit
 fi
 }
@@ -54,6 +62,7 @@ set_bw_session() {
 }
 
 check_bw
+check_jq
 check_email
 set_bw_session
 
