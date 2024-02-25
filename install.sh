@@ -1,41 +1,27 @@
 #!/bin/sh
+export NODE_OPTIONS="--no-deprecation"
+
 os_hasnt() {
   ! type "$1" > /dev/null 2>&1
 }
 
+check_bw(){
 if os_hasnt "bw"; then
-    echo """
-You need to install bitwarden-cli!
 
-Install using the following line
-Then follow the instructions to load the nvm
-
----
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
----
-
-Then:
-
-nvm install stable
-nvm use stable
-npm install -g @bitwarden/cli
-export NODE_OPTIONS="--no-deprecation"
-
-And run again the script
-"""
-    exit 1
+    echo "You need to install bitwarden-cli! Read the README"
+    exit
 fi
+}
 
 
-export NODE_OPTIONS="--no-deprecation"
+check_email() {
+    if [ -z "$BW_EMAIL" ]; then
+      echo "Set the email to use with bw"
+      echo 'export BW_EMAIL="my@email.com'
+      exit 1
+    fi
+}
 
-if [ -z "$BW_EMAIL" ]; then
-  # Check if the input is a valid email
-  while ! [ "$(echo "$BW_EMAIL" | grep '^[a-zA-Z0-9._%+-]\+@[a-zA-Z0-9.-]\+\.[a-zA-Z]\{2,\}$')" ]; do
-    read -p "Enter your email address: " BW_EMAIL
-    export BW_EMAIL
-  done
-fi
 
 set_bw_session() {
     while [ -z "$BW_SESSION" ]; do
@@ -66,3 +52,9 @@ set_bw_session() {
         fi
     done
 }
+
+check_bw
+check_email
+set_bw_session
+
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply karimone
