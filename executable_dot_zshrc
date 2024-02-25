@@ -9,6 +9,7 @@ export VISUAL=nvim
 export PAGER=less
 
 export PIP_DISABLE_PIP_VERSION_CHECK=1
+export NODE_OPTIONS="--no-deprecation"
 
 # Postgresql
 export PGHOST=localhost
