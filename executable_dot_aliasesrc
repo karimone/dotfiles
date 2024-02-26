@@ -47,3 +47,6 @@ alias co="curl https://corona-stats.online/"
 alias mailhog="docker run -p 8025:8025 -p 1025:1025 mailhog/mailhog"
 alias redis="docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest"
 
+# network
+alias bee="ssh karim@192.168.0.110"
+alias cosmos="ssh karim@192.168.0.102"
