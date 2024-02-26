@@ -59,10 +59,11 @@ ssh_load() {
 
 
 _load_extensions(){
-    EXTENSIONS_DIR="$HOME/.extensions"
-    for extension in $(ls -1 "$EXTENSIONS_DIR"/*.sh); do
-        source "$extension"
-    done;
+    if [ -f "$HOME/.extensions" ]; then
+        for extension in $(ls -1 "$EXTENSIONS_DIR"/*.sh); do
+            source "$extension"
+        done;
+    fi
 }
 
 _load_extensions
