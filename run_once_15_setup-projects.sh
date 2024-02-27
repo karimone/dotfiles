@@ -27,5 +27,7 @@ clone_if_not_exists ~/Code/tools/merenda git@github.com:karimone/merenda.git
 clone_if_not_exists ~/Code/tools/kickstart.nvim git@github.com:karimone/kickstart.nvim.git
 
 # Clona il progetto di sites
-clone_if_not_exists ~/Code/sites/alphaville https://github.com/karimone/alphaville
+clone_if_not_exists ~/Code/sites/alphaville git@github.com:karimone/alphaville.git
+clone_if_not_exists ~/Code/sites/karimblog git@gitlab.com:karimone/karimblog.git
+clone_if_not_exists ~/Code/sites/gorjux.net git@gitlab.com:karimone/gorjux.net.git
 
