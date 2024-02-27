@@ -66,8 +66,6 @@ _load_extensions(){
     fi
 }
 
-_load_extensions
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -125,10 +123,12 @@ set_bitwarden() {
 }
 
 set_bitwarden
-
-# Keep it last!
-eval "$(starship init zsh)"
+_load_extensions
+ssh_load
 
 if os_has "neofetch"; then
     neofetch
 fi
+
+# Keep it last!
+eval "$(starship init zsh)"
