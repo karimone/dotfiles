@@ -60,11 +60,14 @@ ssh_load() {
 
 _load_extensions(){
     if [ -f "$HOME/.extensions" ]; then
-        for extension in $(ls -1 "$EXTENSIONS_DIR"/*.sh); do
+    if [ -d ~/.extensions ]; then
+        for extension in $(ls -1 ~/.extensions/*.sh); do
             source "$extension"
         done;
     fi
 }
+
+_load_extensions
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -72,6 +75,18 @@ _load_extensions(){
 # poetry
 #
 fpath+=~/.zfunc
+
+# load the lua language server if exists
+_add_lua_ls_to_path() {
+
+  # There is a problem with the version
+  MACOS_DIR="/opt/homebrew/Cellar/lua-language-server/3.7.4/bin"
+  if [ -d "$MACOS_DIR" ]; then
+    export PATH="$PATH:$MACOS_DIR"
+  else
+    # Linux version here
+  fi
+}
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -123,12 +138,9 @@ set_bitwarden() {
 }
 
 set_bitwarden
-_load_extensions
-ssh_load
+_add_lua_ls_to_path
 
-if os_has "neofetch"; then
-    neofetch
-fi
-
+# Keep it last!
+eval "$(starship init zsh)"
 # Keep it last!
 eval "$(starship init zsh)"
