@@ -8,6 +8,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export PAGER=less
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export PIP_DISABLE_PIP_VERSION_CHECK=1
 export NODE_OPTIONS="--no-deprecation"
 
@@ -59,7 +60,6 @@ ssh_load() {
 
 
 _load_extensions(){
-    if [ -f "$HOME/.extensions" ]; then
     if [ -d ~/.extensions ]; then
         for extension in $(ls -1 ~/.extensions/*.sh); do
             source "$extension"
@@ -137,10 +137,25 @@ set_bitwarden() {
     fi
 }
 
+load_tmuxifier() {
+  tmuxifier="$HOME/Code/tools/tmuxifier"
+  if [ ! -d "$tmuxifier" ]; then
+    git clone https://github.com/jimeh/tmuxifier "$tmuxifier"
+  fi
+  export PATH="$tmuxifier/bin:$PATH"
+  export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux-layouts"
+  eval "$(tmuxifier init -)"
+  if [ ! -d "$TMUXIFIER_LAYOUT_PATH" ]; then
+    mkdir -p "$TMUXIFIER_LAYOUT_PATH"
+  fi
+}
+
+
 set_bitwarden
 _add_lua_ls_to_path
+ssh_load
+load_tmuxifier
 
-# Keep it last!
-eval "$(starship init zsh)"
+
 # Keep it last!
 eval "$(starship init zsh)"

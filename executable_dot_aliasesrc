@@ -21,32 +21,35 @@ alias vim="nvim"
 alias vi="nvim"
 alias mutt="neomutt"
 alias sub="subliminal download --language en"
-alias tmux="tmux -f $HOME/.config/tmux/config"
 alias mv="mv -v"
 alias ..="cd .."
 alias ...="cd .. && cd .."
 
 alias ldmesg="dmesg --color=always | less -R"
-alias t="~/run_tmux.sh"
+alias t="tmuxifier"
 
 # git
-alias cur-branch="git branch --show-current | xclip"
+alias cur-branch="git branch --show-current"
+
+alias diary="cd ~/Dropbox/MyVault/ && nvim ."
 
 # clip
 alias xclip="xclip -selection clipboard"
 alias rsync='rsync --info=progress2'
 
 # docker
-alias diesel-docker="docker system prune -af --volumes"
+alias docker-clean="docker system prune -af --volumes"
+alias mailhog="docker run -p 8025:8025 -p 1025:1025 mailhog/mailhog"
+alias redis="docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest"
 
 # corona
 alias co-au="curl https://corona-stats.online/au"
 alias co-it="curl https://corona-stats.online/it"
 alias co="curl https://corona-stats.online/"
 
-alias mailhog="docker run -p 8025:8025 -p 1025:1025 mailhog/mailhog"
-alias redis="docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest"
 
 # network
 alias bee="ssh karim@192.168.0.110"
 alias cosmos="ssh karim@192.168.0.102"
+alias feex="ssh app@feex.com.au"
+alias alphaville="ssh app@78.47.243.156"
