@@ -30,6 +30,7 @@ alias t="tmuxifier"
 
 # git
 alias cur-branch="git branch --show-current"
+alias tig="lazygit"
 
 alias diary="cd ~/Dropbox/MyVault/ && nvim ."
 
