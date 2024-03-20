@@ -15,13 +15,14 @@ First install nvm:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
-Then install node and bitwarden-cli
+Realod the shell and then install node and bitwarden-cli
 
 ```shell
-nvm install stable
-nvm use stable
-npm install -g @bitwarden/cli
-export NODE_OPTIONS="--no-deprecation"
+nvm install stable \
+nvm use stable \
+npm install -g @bitwarden/cli \
+export NODE_OPTIONS="--no-deprecation" \ 
+export BW_SESSION=$(bw login your@email.com --raw)' \
 ```
 
 ## Install
@@ -29,6 +30,10 @@ export NODE_OPTIONS="--no-deprecation"
 The `install.sh` script take cares of everything. Just run:
 
 ```shell
-curl -sSL https://bit.ly/kngfiles
+curl -sSL https://bit.ly/kngfiles | bash
 ```
+
+## TODO:
+
+- Add `gh` (github-cli) installation script
 

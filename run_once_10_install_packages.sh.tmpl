@@ -8,7 +8,7 @@ brew install --cask iterm2
 {{ else if eq .chezmoi.os "linux" }}
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl detox tmux git exa jq python-is-python3 pipx ffmpeg neofetch zsh unzip bashtop software-properties-common xclip
+sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl detox tmux git exa jq python-is-python3 pipx ffmpeg neofetch zsh unzip bashtop software-properties-common xclip ripgrep
 
 # install nvim last version
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
