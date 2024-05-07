@@ -55,6 +55,7 @@ alias up="sudo apt update && sudo apt upgrade -y; flatpak update"
 
 # network
 alias bee="ssh karim@192.168.0.110"
+alias latitute="ssh karim@192.168.0.111"
 alias cosmos="ssh karim@192.168.0.102"
 alias feex="ssh app@feex.com.au"
 alias alphaville="ssh app@78.47.243.156"
