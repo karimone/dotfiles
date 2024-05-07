@@ -7,7 +7,7 @@ require("neo-tree").setup({
         -- auto close
         -- vimc.cmd("Neotree close")
         -- OR
-        require("neo-tree.command").execute({ action = "close" })
+        -- require("neo-tree.command").execute({ action = "close" })
       end
     },
 

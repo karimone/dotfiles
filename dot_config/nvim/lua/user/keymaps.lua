@@ -11,8 +11,8 @@ local cmd = vim.cmd
 set('n', '<C-q>', cmd.quit, "Simple Quit")
 
 -- Windows
-set('n', '<leader>\\', cmd.vs, "VSplit current window")
-set('n', '<leader>-', cmd.split, "HSplit current window")
+set('n', '\\', cmd.vs, "VSplit current window")
+set('n', '-', cmd.split, "HSplit current window")
 
 set('n', '<C-k>', '<C-w>k')             -- Move window above
 set('n', '<C-j>', '<C-w>j')             -- Move window below
@@ -25,8 +25,8 @@ set('n', '<leader><Down>', [[<cmd>horizontal resize -5<cr>]])
 set('n', '<leader><Right>', [[<cmd>vertical resize +5<cr>]])
 set('n', '<leader><Left>', [[<cmd>vertical resize -5<cr>]])
 -- Tabs
-set('n', '<A>t', cmd.tabnew, "Create new tab")
-set('n', '<A>q', cmd.tabclose, "Close tab")
+set('n', '<A-t>', cmd.tabnew, "Create new tab")
+set('n', '<A-q>', cmd.tabclose, "Close tab")
 set('n', '<A-h>', cmd.tabprevious, "Previous Tab")
 set('n', '<A-l>', cmd.tabnext, "Next Tab")
 

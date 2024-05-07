@@ -227,10 +227,11 @@ local myLazyPlugins = {
   'kassio/neoterm',          -- API for the Term
   vimFugitivePlugin,      -- The best git plugin
   'github/copilot.vim',      -- Github Copilot plugin
-  octoPlugin,                -- Manage the Github reviews
+  -- octoPlugin,                -- Manage the Github reviews
   neoCommentPlugin,          -- Comment plugin
   zenModePlugin,             -- Zen mode
   autoSavePlugin,            -- Auto save
+  "williamboman/mason.nvim",
 }
 
 local myLazyOptions = {
