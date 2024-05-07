@@ -161,7 +161,7 @@ load_scripts() {
 
 
 # load the homebrew packages
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+[ -s /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 set_bitwarden
 _add_lua_ls_to_path
