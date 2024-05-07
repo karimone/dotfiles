@@ -150,11 +150,25 @@ load_tmuxifier() {
   fi
 }
 
+load_scripts() {
+  if [ -d "$HOME/.config/scripts/" ]; then
+    for script in $(ls -1 ~/.config/scripts/*.sh); do
+      echo "Loading $script.."
+      source "$script"
+    done
+  fi
+}
+
+
+# load the homebrew packages
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 set_bitwarden
 _add_lua_ls_to_path
 ssh_load
 load_tmuxifier
+load_scripts
+
 
 
 # Keep it last!

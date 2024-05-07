@@ -7,6 +7,8 @@ alias la="ll -a"
 alias lt="l --tree"
 alias llt="ll --tree"
 alias vimdiff="nvim -d"
+alias f="flatpak"
+alias v="nvim"
 
 # chezmoi
 alias c="chezmoi"
@@ -48,6 +50,8 @@ alias co-au="curl https://corona-stats.online/au"
 alias co-it="curl https://corona-stats.online/it"
 alias co="curl https://corona-stats.online/"
 
+# Ubuntu
+alias up="sudo apt update && sudo apt upgrade -y; flatpak update"
 
 # network
 alias bee="ssh karim@192.168.0.110"
