@@ -1,6 +1,6 @@
 #vim ft=shell
 #
-alias ls="exa"
+alias ls="lsd"
 alias ll="ls -lh"
 alias l="ll -a"
 alias la="ll -a"
