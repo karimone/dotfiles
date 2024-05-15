@@ -1,14 +1,18 @@
 #!/bin/bash
 {{ if eq .chezmoi.os "darwin" -}}
 
-brew install git neovim neofetch ffmpeg jq detox exa ffmpeg hugo lazygit lua pipx starship tig tmux
+brew install git neovim neofetch ffmpeg jq detox lsd ffmpeg hugo lazygit lua pipx starship tig tmux
 
-brew install --cask iterm2
+ brew install --cask iterm2
+
+# installing nerdfonts (requires a reboot)
+brew tap homebrew/cask-fonts
+brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true
 
 {{ else if eq .chezmoi.os "linux" }}
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl detox tmux git exa jq python-is-python3 pipx ffmpeg neofetch zsh unzip bashtop software-properties-common xclip ripgrep
+sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl detox tmux git lsd jq python-is-python3 pipx ffmpeg neofetch zsh unzip bashtop software-properties-common xclip ripgrep
 
 # install nvim last version
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
