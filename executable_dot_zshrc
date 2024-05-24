@@ -59,16 +59,6 @@ ssh_load() {
 }
 
 
-_load_extensions(){
-    if [ -d ~/.extensions ]; then
-        for extension in $(ls -1 ~/.extensions/*.sh); do
-            source "$extension"
-        done;
-    fi
-}
-
-_load_extensions
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -152,8 +142,8 @@ load_tmuxifier() {
 
 load_scripts() {
   if [ -d "$HOME/.config/scripts/" ]; then
+    echo "Loading scripts..."
     for script in $(ls -1 ~/.config/scripts/*.sh); do
-      echo "Loading $script.."
       source "$script"
     done
   fi
